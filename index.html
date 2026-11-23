@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#080d24">
+  <meta name="description" content="Galaxy Miner: pilot a mining ship, break asteroids, collect ore and upgrade your craft in a 3D space arcade adventure.">
+  <title>Galaxy Miner — Asteroid Expedition</title>
+  <link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene" aria-label="Galaxy Miner 3D space flying game"></canvas>
+    <header class="hud">
+      <div class="identity"><span class="logo">✦</span><span>GALAXY <strong>MINER</strong><small>ASTEROID EXPEDITION</small></span></div>
+      <div class="metrics">
+        <div class="metric"><small>ORE</small><strong><span id="ore">0</span><span class="dim"> / <span id="target">100</span></span></strong></div>
+        <div class="metric"><small>SECTOR</small><strong id="sector">1 / 3</strong></div>
+        <div class="metric"><small>SCORE</small><strong id="score">0</strong></div>
+      </div>
+      <div class="top-buttons"><button id="sound" aria-label="Toggle sound" title="Toggle sound">♫</button><button id="pause" aria-label="Pause game" title="Pause">Ⅱ</button></div>
+    </header>
+    <div class="status">
+      <div class="status-row"><span>HULL</span><div class="meter"><div id="hull-fill" class="fill hull"></div></div><b id="hull-label">100%</b></div>
+      <div class="status-row"><span>ENERGY</span><div class="meter"><div id="energy-fill" class="fill energy"></div></div><b id="energy-label">100%</b></div>
+      <div class="status-row"><span>MISSION</span><p id="mission">Mine asteroids for ore</p></div>
+    </div>
+    <div class="reticle" aria-hidden="true"><span></span></div>
+    <div class="target-hint" id="target-hint">Aim at a nearby asteroid</div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="controls" id="controls">
+      <div id="joystick" class="joystick" aria-label="Steer spaceship"><div class="stick" id="stick"></div><span>STEER</span></div>
+      <div class="actions"><button id="mine" class="mine-btn" aria-label="Hold to mine asteroids"><span class="action-icon">⚡</span> MINE</button><button id="boost" class="boost-btn" aria-label="Hold to boost">BOOST ↗</button></div>
+    </div>
+    <div id="overlay" class="overlay">
+      <section class="panel" role="dialog" aria-labelledby="panel-title" aria-modal="true">
+        <p class="eyebrow" id="panel-eyebrow">A NEW SPACE ADVENTURE</p>
+        <div class="planet-mark">🪐</div>
+        <h1 id="panel-title">Galaxy Miner</h1>
+        <p id="panel-desc">Pilot a mining ship through a vivid asteroid belt. Fire your mining laser to break rocks, collect precious minerals and upgrade your spacecraft.</p>
+        <div class="instruction-grid" id="instructions">
+          <div><b>MOVE</b><span>Joystick / WASD</span></div>
+          <div><b>MINE</b><span>Hold MINE / Space</span></div>
+          <div><b>BOOST</b><span>Hold BOOST / Shift</span></div>
+          <div><b>PAUSE</b><span>P / Ⅱ</span></div>
+        </div>
+        <button id="primary" class="primary">START EXPEDITION <span>→</span></button>
+        <div class="panel-footer"><span>3 sectors • 3 ship upgrades</span><span>Free 3D browser game</span></div>
+      </section>
+    </div>
+    <div class="error" id="error" hidden><h2>Unable to start the 3D engine</h2><p>Galaxy Miner needs a browser with WebGL support and an internet connection for the Three.js library. Open this page in current Safari, Chrome, Edge or Firefox.</p></div>
+  </main>
+  <script type="module" src="game.js?v=1"></script>
+</body>
+</html>
